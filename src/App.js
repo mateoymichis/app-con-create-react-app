@@ -1,21 +1,11 @@
-import {useEffect, useState} from 'react';
 import './App.css';
-import getGifs from './services/getGifs';
-import Gif from './components/Gif'
+import ListOfGifs from './components/ListOfGifs';
 
 function App() {
-  const [gifs, setGifs] = useState([]);
-
-  useEffect(function () {
-    getGifs().then(gifs => setGifs(gifs))
-  }, []);
-
   return (
     <div className="App">
       <section className="App-content">
-        {
-          gifs.map(singleGif => <Gif title={singleGif.title} url={singleGif.url} id={singleGif.id} />)
-        }
+       <ListOfGifs keyword='argentina' />
       </section>
     </div>
   );
